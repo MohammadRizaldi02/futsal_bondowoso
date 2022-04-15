@@ -69,7 +69,7 @@
 <body>
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
-        @include('layouts.components.navbar')
+        @include('layouts.components.sidebar')
     </aside>
     <!-- /#left-panel -->
     <!-- Right Panel -->
