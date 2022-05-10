@@ -8,7 +8,7 @@
             <li class="menu-item-has-children dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Schedule</a>
                 <ul class="sub-menu children dropdown-menu">
-                    <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Area</a></li>
+                    <li><i class="fa fa-id-badge"></i><a href="/schedule">Area</a></li>
                 </ul>
             </li>
             <li class="menu-item-has-children dropdown">
@@ -18,9 +18,17 @@
                     <li><i class="fa fa-table"></i><a href="tables-data.html">Laporan Pemesanan</a></li>
                 </ul>
             </li>
-            <li class="">
-                <a href="index.html"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
+            <li>
+                <a href="#">
+                    <i class="menu-icon fa fa-user"></i>
+                    Karyawan</a>
             </li>
+            <li class="">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
+            </li>
+            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
 
         </ul>
     </div><!-- /.navbar-collapse -->
