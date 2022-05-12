@@ -69,13 +69,13 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="/image/lapangan-futsal-e1500518630769.jpg" class="rounded" alt="...">
+                        <img src="/image/lapangan-futsal-e1500518630769.jpg" width="300">
                     </div>
                     <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="/image/lapangan-futsal-e1500518630769.jpg" class="rounded" alt="...">
+                        <img src="/image/lapangan-futsal-e1500518630769.jpg" width="300">
                     </div>
                     <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="/image/lapangan-futsal-e1500518630769.jpg" class="rounded" alt="...">
+                        <img src="/image/lapangan-futsal-e1500518630769.jpg" width="300">
                     </div>
                 </div>
             </div>
@@ -136,30 +136,19 @@
                                     <th scope="col">Status</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Dafrin</td>
-                                    <td>08.00 WIB - 10.00 WIB</td>
-                                    <td>2 Jam</td>
-                                    <td>25/04/2022</td>
-                                    <td>Gladiator 1</td>
-                                    <td>
-                                        <span class="badge rounded-pill bg-success">Booking</span>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Hasyim</td>
-                                    <td>08.00 WIB - 10.00 WIB</td>
-                                    <td>2 Jam</td>
-                                    <td>25/04/2022</td>
-                                    <td>Gladiator 2</td>
-                                    <td>
-                                        <span class="badge rounded-pill bg-danger">Belum</span>
-                                    </td>
-                                  </tr>
-                                </tbody>
+                               <tbody>
+                                   @foreach ($data as $item)
+                                    <tr>
+                                        <td>{{ $item->id}}</td>
+                                        <td>{{ $item->name}}</td>
+                                        <td>{{ $item->time_schedule}}</td>
+                                        <td>{{ $item->duration}}</td>
+                                        <td>{{ $item->date_schedule}}</td>
+                                        <td>{{ $item->soccer_field}}</td>
+                                        <td>{{ $item->status}}</td>
+                                    </tr>
+                                   @endforeach
+                               </tbody>
                               </table>
                             </div>
                           </div>

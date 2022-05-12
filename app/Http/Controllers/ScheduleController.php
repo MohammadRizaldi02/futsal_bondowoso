@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Schedule;
+
 
 class ScheduleController extends Controller
 {
@@ -34,7 +36,11 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+
+        Schedule::create($data);
+
+        return back();
     }
 
     /**

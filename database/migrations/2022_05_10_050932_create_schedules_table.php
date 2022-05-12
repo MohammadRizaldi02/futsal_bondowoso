@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Nama Penyewa');
-            $table->time('Jam', $precision = 0);
-            $table->string('Durasi');
-            $table->date('Tanggal');
-            $table->string('Lapangan');
-            $table->enum('Status', ['Booking', 'Belum']);
+            $table->string('name');
+            $table->time('time_schedule', $precision = 0);
+            $table->string('duration');
+            $table->date('date_schedule');
+            $table->string('soccer_field');
+            $table->enum('status', ['booking', 'belum']);
         });
     }
 
