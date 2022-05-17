@@ -14,4 +14,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('schedule', ScheduleController::class);
+Route::resource('schedule', ScheduleController::class)->except('destroy');
+Route::get('/schedule/destroy/{id}', [ScheduleController::class,'destroy']);

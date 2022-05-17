@@ -15,7 +15,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('admin.schedule.index');
+        $data = Schedule::all();
+        return view('admin.schedule.index',compact('data'));
     }
 
     /**
@@ -62,7 +63,10 @@ class ScheduleController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $scheduleid=Schedule::find($id);
+        // dd($scheduleid);
+        return view('admin.schedule.edit', compact('scheduleid'));
     }
 
     /**
@@ -74,7 +78,11 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $scheduleid = Schedule::find($id);
+
+        $scheduleid->update($request->all());
+
+        return redirect()->route('schedule.index');
     }
 
     /**
@@ -85,6 +93,7 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \DB::table('schedules')->where('id', $id)->delete();
+        return redirect('/schedule');
     }
 }

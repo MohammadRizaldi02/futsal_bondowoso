@@ -111,7 +111,7 @@
                                             <td> 082338906182 </td>
                                             <td>  <span class="nama">Rizaldi</span> </td>
                                             <td> <span class="Lapangan">Gladiator</span> </td>
-                                            <td> <span class="Waktu">1jam</span> </td>
+                                            <td> <span class="Waktu">1 jam</span> </td>
                                             <td><span class="DP">20.000</span></td>
                                             <td>
                                                 <span class="badge badge-complete">Selesai Konfirmasi</span>
@@ -122,7 +122,7 @@
                                     <td> 082338906182 </td>
                                     <td>  <span class="nama">Dafrin</span> </td>
                                     <td> <span class="Lapangan">Gladiator</span> </td>
-                                    <td> <span class="Waktu">2jam</span> </td>
+                                    <td> <span class="Waktu">2 jam</span> </td>
                                     <td><span class="DP">25.000</span></td>
                                     <td>
                                         <span class="badge badge-danger">Belum konfirmasi</span>
