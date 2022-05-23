@@ -68,15 +68,13 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach ($area as $item)
                     <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="/image/lapangan-futsal-e1500518630769.jpg" width="300">
+                        <img src="{{ url('/public/image/'. $item->photo)}}" height="200" width="300">
+                        <h4 class="py-2">{{$item->name}}</h4>
+                        <p>{{$item->description}}</p>
                     </div>
-                    <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="/image/lapangan-futsal-e1500518630769.jpg" width="300">
-                    </div>
-                    <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="/image/lapangan-futsal-e1500518630769.jpg" width="300">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
