@@ -15,12 +15,23 @@
                         @csrf
 
                     <div class="form-group"><label for="company" class=" form-control-label">Deskripsi Lapangan</label>
-                        <textarea id="company" placeholder="" name="description"  class="form-control"></textarea>
+                        <textarea id="company" placeholder="" name="description"  class="form-control @error('description') is-invalid @enderror"></textarea>
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                     <div class="form-group"><label for="company" class=" form-control-label">Lapangan</label>
-                        <input type="text" id="company" placeholder="" name="name"  class="form-control"></div>
+                        <input type="text" id="company" placeholder="" name="name"  class="form-control @error('name') is-invalid @enderror">
+                        @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="form-group"><label for="company" class=" form-control-label">Gambar</label>
-                        <input type="file" id="company" placeholder="" name="photo"  class="form-control"></div>
+                        <input type="file" id="company" placeholder="" name="photo"  class="form-control @error('photo') is-invalid @enderror">
+                        @error('photo')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     </div>
                 </div>
                 <div class="px-4 mb-4">

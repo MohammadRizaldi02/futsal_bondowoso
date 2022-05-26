@@ -84,14 +84,14 @@
             <div class="container px-4 px-lg-5">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h4>Harga Jadwal Lapangan Futsal</h4>
+                        <h4 class="text-center">Harga Sewa Lapangan</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 mt-2">
                         <div class="card">
                             <div class="card-body">
-                              <h5 class="card-title">Paket Pagi - Sore</h5>
+                              <h5 class="card-title">Pagi - Sore</h5>
                               <h6 class="card-subtitle mb-2 text-muted">Jam 08.00 WIB - 17.00 WIB</h6>
                               <p class="fw-bold">Rp.80.000,- Per Jam</p>
                               <a href="#" class="btn btn-primary">Pesan Sekarang</a>
@@ -101,7 +101,7 @@
                     <div class="col-lg-6 col-sm-12 mt-2">
                         <div class="card">
                             <div class="card-body">
-                              <h5 class="card-title">Paket Malam</h5>
+                              <h5 class="card-title">Malam</h5>
                               <h6 class="card-subtitle mb-2 text-muted">Jam 19.00 WIB - 00.00 WIB </h6>
                               <p class="fw-bold">Rp.100.000,- Per Jam</p>
                               <a href="#" class="btn btn-primary">Pesan Sekarang</a>
@@ -114,44 +114,88 @@
             <div class="container px-4 px-lg-5 mt-4">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h4>Jadwal Booking</h4>
+                        <h4 class="text-center">Shcedule Lapangan</h4>
+                        <br><br>
+                        <input type="date" name="" id="" value="<?php echo date('Y-m-d'); ?>">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12 mt-2">
-                        <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title">Jadwal Booking Lapangan</h5>
-                              <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama Penyewa</th>
-                                    <th scope="col">Jam</th>
-                                    <th scope="col">Durasi</th>
-                                    <th scope="col">Tanggal</th>
-                                    <th scope="col">Lapangan</th>
-                                    <th scope="col">Status</th>
-                                  </tr>
-                                </thead>
-                               <tbody>
-                                   @foreach ($data as $item)
-                                    <tr>
-                                        <td>{{ $item->id}}</td>
-                                        <td>{{ $item->name}}</td>
-                                        <td>{{ $item->time_schedule}}</td>
-                                        <td>{{ $item->duration}}</td>
-                                        <td>{{ $item->date_schedule}}</td>
-                                        <td>{{ $item->soccer_field}}</td>
-                                        <td>{{ $item->status}}</td>
-                                    </tr>
-                                   @endforeach
-                               </tbody>
-                              </table>
+                    <div class="col-lg-12 ">
+                        <div class="row mt-4">
+                            <div class="col-lg-2">
+                                <h5>Lapangan 1</h5>
                             </div>
-                          </div>
+                            <div class="col-lg-10">
+                                @php
+
+                                    $begin = new DateTime("09:00:00");
+                                    $end   = new DateTime("24:00:00");
+
+                                    $interval = DateInterval::createFromDateString('60 min');
+
+                                    $times    = new DatePeriod($begin, $interval, $end);
+
+                                    foreach ($times as $time) {
+                                        echo  "<span class='badge bg-success'>".$time->format('H:i')."</span>", "\n";
+                                    }
+                                @endphp
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-2">
+                                <h5>Lapangan 2</h5>
+                            </div>
+                            <div class="col-lg-10">
+                                @php
+                                    $begin = new DateTime("09:00");
+                                    $end   = new DateTime("24:00");
+
+                                    $interval = DateInterval::createFromDateString('60 min');
+
+                                    $times    = new DatePeriod($begin, $interval, $end);
+
+                                    foreach ($times as $time) {
+                                        echo  "<span class='badge bg-success'>".$time->format('H:i')."</span>", "\n";
+                                    }
+                                @endphp
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-2">
+                                <h5>Lapangan 3</h5>
+                            </div>
+                            <div class="col-lg-10">
+                                @php
+                                $begin = new DateTime("09:00");
+                                $end   = new DateTime("24:00");
+
+                                $interval = DateInterval::createFromDateString('60 min');
+
+                                $times    = new DatePeriod($begin, $interval, $end);
+
+                                foreach ($times as $time) {
+                                    echo  "<span class='badge bg-success'>".$time->format('H:i')."</span>", "\n";
+                                }
+                            @endphp
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-10">
+                                <button type="button" class="btn btn-danger">
+                                    {{-- Notifications <span class="badge bg-secondary">4</span> --}}
+                                  </button>
+                                  <span>Sudah di booking</span>
+
+                            </div>
+                            <br>
+                            <div class="col-lg-10 mt-2">
+                                <button type="button" class="btn btn-success">
+                                    {{-- Notifications <span class="badge bg-secondary">4</span> --}}
+                                  </button>
+                                  <span>Belum di booking</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
         <!-- Signup-->

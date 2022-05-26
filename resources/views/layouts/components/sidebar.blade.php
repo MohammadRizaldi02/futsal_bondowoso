@@ -3,10 +3,10 @@
         <ul class="nav navbar-nav">
             <li class="menu-title">General</li><!-- /.menu-title -->
             <li class="">
-                <a href="#"><i class="menu-icon fa fa-table"></i>Report </a>
+                <a href="/report"><i class="menu-icon fa fa-table"></i>Report </a>
             </li>
             <li class="">
-                <a href="/area"><i class="menu-icon fa fa-table"></i>Area/Lapangan </a>
+                <a href="/area"><i class="menu-icon fa fa-table"></i>Area </a>
             </li>
             <li class="">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="menu-icon fa fa-sign-out"></i>Logout </a>

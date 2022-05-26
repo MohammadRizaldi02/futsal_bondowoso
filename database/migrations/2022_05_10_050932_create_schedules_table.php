@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('duration');
             $table->date('date_schedule');
             $table->string('soccer_field');
-            $table->enum('status', ['booking', 'belum']);
+            $table->string('day');
+            $table->enum('status', ['1', '2']);
         });
     }
 

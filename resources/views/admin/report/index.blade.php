@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong class="card-title">
-                        <a href="{{ route('area.create')}}" class="btn btn-sm btn-primary">Tambah Data</a>
+                        <a href="">Laporan Lapangan yang sudah diboking</a>
                     </strong>
                 </div>
                 <div class="card-body">
@@ -18,29 +18,25 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Deskripsi Lapangan</th>
+                                <th scope="col">Atas Nama</th>
                                 <th scope="col">Lapangan</th>
-                                <th scope="col">Gambar</th>
-                                <th scope="col">Action</th>
-
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Jam</th>
+                                <th scope="col">Hari</th>
                             </tr>
                         </thead>
                        <tbody>
                         @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $item->description}}</td>
                                         <td>{{ $item->name}}</td>
-                                        <td>
-                                            <img src="{{ url('/public/image/'. $item->photo)}}" alt="">
-                                        </td>
-                                        <td>
-                                            <a href="/area/{{ $item->id }}/edit" class="btn btn-xs btn-primary">Edit</a>
-                                            <a href="/area/destroy/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('yakin?');">Delete</a>
-</td>
+                                        <td>{{ $item->soccer_field}}</td>
+                                        <td>{{ $item->date_schedule}}</td>
+                                        <td>{{ $item->time_schedule}}</td>
+                                        <td>{{ $item->day}}</td>
                                         </td>
                                     </tr>
-                        @endforeach
+                                   @endforeach
                        </tbody>
                     </table>
                 </div>
@@ -51,3 +47,4 @@
     <!-- .animated -->
 </div>
 @endsection
+
