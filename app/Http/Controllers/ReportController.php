@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Schedule;
+use App\Models\Transaction;
 
 class ReportController extends Controller
 {
     public function index()
     {
-        $data = Schedule::where('status', '=','1')->get();
+        $data = Transaction::all();
         return view('admin.report.index',compact('data'));
     }
 }

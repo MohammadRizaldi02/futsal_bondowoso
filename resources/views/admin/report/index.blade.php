@@ -18,22 +18,22 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Atas Nama</th>
-                                <th scope="col">Lapangan</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Area</th>
+                                <th scope="col">Transaksi</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Jam</th>
-                                <th scope="col">Hari</th>
                             </tr>
                         </thead>
                        <tbody>
                         @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $item->name}}</td>
-                                        <td>{{ $item->soccer_field}}</td>
-                                        <td>{{ $item->date_schedule}}</td>
-                                        <td>{{ $item->time_schedule}}</td>
-                                        <td>{{ $item->day}}</td>
+                                        <td>{{ $item->user_id}}</td>
+                                        <td>{{ $item->area_id}}</td>
+                                        {{-- <td>{{ $item->}}</td> --}}
+                                        <td>{{ $item->created_at}}</td>
+                                        {{-- <td>{{ $item->day}}</td> --}}
                                         </td>
                                     </tr>
                                    @endforeach

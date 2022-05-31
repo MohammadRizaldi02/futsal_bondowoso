@@ -102,7 +102,7 @@
                         <div class="card">
                             <div class="card-body">
                               <h5 class="card-title">Malam</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Jam 19.00 WIB - 00.00 WIB </h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Jam 18.00 WIB - 23.00 WIB </h6>
                               <p class="fw-bold">Rp.100.000,- Per Jam</p>
                               <a href="#" class="btn btn-primary">Pesan Sekarang</a>
                             </div>
