@@ -27,16 +27,16 @@
                         </thead>
                        <tbody>
                         @foreach ($data as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $item->user_id}}</td>
-                                        <td>{{ $item->area_id}}</td>
-                                        {{-- <td>{{ $item->}}</td> --}}
-                                        <td>{{ $item->created_at}}</td>
-                                        {{-- <td>{{ $item->day}}</td> --}}
-                                        </td>
-                                    </tr>
-                                   @endforeach
+                            <tr>
+                                <td>{{ $loop->iteration}}</td>
+                                <td>{{ $item->user->name}}</td>
+                                <td>{{ $item->area->name}}</td>
+                                <td>{{ $item->evidence_of_transfer}}</td>
+                                <td>{{ $item->created_at->format("d-m-Y")}}</td>
+                                <td>{{ $item->created_at->format("H:i")}}</td>
+                                </td>
+                            </tr>
+                        @endforeach
                        </tbody>
                     </table>
                 </div>
