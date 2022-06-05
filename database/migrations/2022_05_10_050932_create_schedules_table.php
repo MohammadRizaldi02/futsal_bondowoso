@@ -14,14 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('schedules', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+            $table->id();
             $table->time('time_schedule', $precision = 0);
             $table->string('duration');
             $table->date('date_schedule');
             $table->string('soccer_field');
-            $table->string('day');
-            $table->enum('status', ['1', '2']);
+            $table->enum('status', ['1', 'null']);
         });
     }
 

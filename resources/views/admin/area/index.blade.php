@@ -29,7 +29,7 @@
                         @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $item->description}}</td>
+                                        <td>{{\Str::limit($item->description, 100)}}</td>
                                         <td>{{ $item->name}}</td>
                                         <td>
                                             <img src="{{ url('/public/image/'. $item->photo)}}" alt="">

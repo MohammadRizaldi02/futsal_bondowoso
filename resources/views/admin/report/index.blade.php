@@ -18,22 +18,25 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">User</th>
                                 <th scope="col">Area</th>
-                                <th scope="col">Transaksi</th>
+                                <th scope="col">Bukti Transfer</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Jam</th>
+                                <th> Status</th>
                             </tr>
                         </thead>
                        <tbody>
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration}}</td>
-                                <td>{{ $item->user->name}}</td>
                                 <td>{{ $item->area->name}}</td>
                                 <td>{{ $item->evidence_of_transfer}}</td>
-                                <td>{{ $item->created_at->format("d-m-Y")}}</td>
-                                <td>{{ $item->created_at->format("H:i")}}</td>
+                                <td>{{ $item->schedule->date_schedule}}</td>
+                                <td>{{ $item->schedule->time_schedule}}</td>
+
+                                <td>
+                                    <button class="btn btn-{{ ($item->evidence_of_transfer == null) ? 'warning' : 'success'}}">{{ ($item->evidence_of_transfer == null) ? 'Pending' : 'Lunas'}}</button>
+                                </td>
                                 </td>
                             </tr>
                         @endforeach

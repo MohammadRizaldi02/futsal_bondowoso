@@ -14,6 +14,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/landingpage.css" rel="stylesheet" />
+
+        {{-- Owljs --}}
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -67,14 +70,19 @@
                         <h2 class="mb-5">Galeri</h2>
                     </div>
                 </div>
+
                 <div class="row">
+                    {{-- <div class="owl-carousel"> --}}
                     @foreach ($area as $item)
-                    <div class="col-lg-4 col-sm-12 mt-2">
-                        <img src="{{ url('/public/image/'. $item->photo)}}" height="200" width="300">
-                        <h4 class="py-2">{{$item->name}}</h4>
-                        <p>{{$item->description}}</p>
-                    </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <img src="{{ url('/public/image/'. $item->photo)}}" height="200" width="300">
+                            <h4 class="py-2">{{$item->name}}</h4>
+                            <p>{{\Str::limit($item->description, 100)}}</p>
+                            <button class="btn btn-primary">selengkapnya</button>
+                        </div>
                     @endforeach
+                    {{-- </div> --}}
+                    <!-- Set up your HTML -->
                 </div>
             </div>
         </section>
@@ -114,7 +122,7 @@
             <div class="container px-4 px-lg-5 mt-4">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h4 class="text-center">Shcedule Lapangan</h4>
+                        <h4 class="text-center">Schedule Lapangan</h4>
                         <br><br>
                         <input type="date" name="" id="" value="<?php echo date('Y-m-d'); ?>">
                     </div>
@@ -133,8 +141,16 @@
 
                                     $times    = new DatePeriod($begin, $interval, $end);
 
+                                    use App\Models\{Transaction,Schedule, Area};
+
+                                    $l1 = Transaction::where('area_id', 1)
+                                                        ->whereNotNull('evidence_of_transfer')
+                                                        ->value('time_schedule');
                                     foreach ($times as $time) {
-                                        echo  "<span class='badge bg-success'>".$time->format('H:i')."</span>", "\n";
+                                        @endphp
+
+                                        <span class='badge bg-{{ $l1 == $time->format('H:i:s') ? 'danger' : 'success'}}'>{{$time->format('H:i')}}</span>
+                                  @php
                                     }
                                 @endphp
                             </div>
@@ -286,6 +302,7 @@
         </section>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Gladiator Futsal Bondowoso 2022</div></footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -295,5 +312,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
     </body>
 </html>
