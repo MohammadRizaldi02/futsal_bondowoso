@@ -62,7 +62,6 @@
         #cellPaiChart{
             height: 160px;
         }
-
     </style>
 </head>
 
@@ -114,6 +113,7 @@
 
     <!--Local Stuff-->
     <script>
+        
         jQuery(document).ready(function($) {
             "use strict";
 
@@ -304,5 +304,7 @@
             // Bar Chart #flotBarChart End
         });
     </script>
+    @stack('scripts')
+
 </body>
 </html>

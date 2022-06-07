@@ -72,16 +72,24 @@
                 </div>
 
                 <div class="row">
-                    {{-- <div class="owl-carousel"> --}}
+                    <!-- <div class="owl-carousel"> -->
                     @foreach ($area as $item)
                         <div class="col-lg-4 col-md-4 col-sm-12">
-                            <img src="{{ url('/public/image/'. $item->photo)}}" height="200" width="300">
+                            <img src="{{ url('/public/image/'. $item->photo)}}" height="200" width="100%">
                             <h4 class="py-2">{{$item->name}}</h4>
-                            <p>{{\Str::limit($item->description, 100)}}</p>
-                            <button class="btn btn-primary">selengkapnya</button>
+                            
+                            <p>{{\Str::limit($item->description, 50, $end = '...')}}</p>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$item->id}}">
+                                Selangkapnya
+                            </button>
                         </div>
+                        @include('common.modal-area')
                     @endforeach
-                    {{-- </div> --}}
+                    
+                        {{-- Modal Area --}}
+
+                    <!-- </div> -->
                     <!-- Set up your HTML -->
                 </div>
             </div>
@@ -180,6 +188,7 @@
                             </div>
                             <div class="col-lg-10">
                                 @php
+
                                 $begin = new DateTime("09:00");
                                 $end   = new DateTime("24:00");
 

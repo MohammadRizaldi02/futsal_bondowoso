@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
 
@@ -29,7 +30,16 @@
                         @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $loop->iteration}}</td>
-                                        <td>{{\Str::limit($item->description, 100)}}</td>
+                                        <td>
+                                            {{ \Str::limit($item->description, 50, '') }}
+                                            @if (strlen($item->description) > 50)
+                                                <span id="dots-{{ $item->id}}">...</span>
+                                                <span id="more-{{ $item->id}}" style="display:none;">{{ substr($item->description, 50) }}</span>
+                                            @endif
+
+                                            <button onclick="myFunction({{ $item->id}})" type="button" class="btn btn-primary btn-sm" id="myBtn-{{ $item->id}}">Read more</button>
+
+                                        </td>
                                         <td>{{ $item->name}}</td>
                                         <td>
                                             <img src="{{ url('/public/image/'. $item->photo)}}" alt="">
@@ -51,3 +61,24 @@
     <!-- .animated -->
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+          // javascript untuk readmore
+          function myFunction(id) {
+            var dots = document.getElementById("dots-" + id);
+            var moreText = document.getElementById("more-" + id);
+            var btnText = document.getElementById("myBtn-"+id);
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
+@endpush
